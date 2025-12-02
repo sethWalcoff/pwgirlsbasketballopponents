@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Opponents</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.6.2/flatly/bootstrap.min.css" />
+</head>
+<body>
+
+  <!-- Redirect to login if not logged in -->
+  <script>
+    if (sessionStorage.getItem("loggedIn") !== "true") {
+      window.location.href = "index.html";
+    }
+  </script>
+
+  <!-- Header partial -->
+  <div id="header"></div>
+  <script>
+    fetch("partials/header.html")
+      .then(res => res.text())
+      .then(html => document.getElementById("header").innerHTML = html);
+  </script>
+
+  <!-- Navbar partial -->
+  <div id="navbar"></div>
+  <script>
+    fetch("partials/navbar.html")
+      .then(res => res.text())
+      .then(html => {
+        const navbarContainer = document.getElementById("navbar");
+        navbarContainer.innerHTML = html;
+
+        if (sessionStorage.getItem("loggedIn") === "true") {
+          const opponentsLink = document.getElementById("opponents-link");
+          if (opponentsLink) opponentsLink.style.display = "block";
+        }
+      });
+  </script>
+
+  <!-- Page content -->
+  <div class="container mt-4">
+    <h3 class="mb-4 text-center">Select an Opponent to View Stats (2023-2025)</h3>
+
+    <!-- Division Rivals Section -->
+    <h4 class="mb-3 text-center">Liberty Division</h4>
+    <div class="d-flex flex-wrap justify-content-center mb-4 gap-3">
+      <a href="teams/abington.html" class="btn" style="background-color:maroon; color:white; padding:12px 20px; font-weight:bold; border-radius:8px;">Abington</a>
+      <a href="teams/hatboro.html" class="btn" style="background-color:red ; color:white; text-shadow: 2px 2px 2px black; padding:12px 20px; font-weight:bold; border-radius:8px; margin-left:20px">Hatboro-Horsham</a>
+      <a href="teams/qtown.html" class="btn" style="background-color:blueviolet; color:black; padding:12px 20px; font-weight:bold; border-radius:8px;margin-left:20px">Quakertown</a>
+      <a href="teams/upperdublin.html" class="btn" style="background-color:red; color:white;padding:12px 20px; font-weight:bold; border-radius:8px;margin-left:20px">Upper Dublin</a>
+      <a href="teams/wiss.html" class="btn" style="background-color:navy;color:rgb(220, 220, 6); padding:12px 20px; font-weight:bold; border-radius:8px;margin-left:20px">Wissahickon</a>
+    </div>
+
+    <!-- Seasonal Columns -->
+    <div class="row">
+      <!-- 2023-2024 -->
+      <div class="col-md-6">
+        <h3 class="mb-3 text-center" style="margin-top:25px;margin-right:175px;margin-bottom:25px">2023-2024 Season</h3>
+        <div class="row">
+          <div class="col-sm-6 col-lg-6 mb-3">
+            <a href="teams/bodine.html" class="btn" style="color:blue; background-color:white; border-color: blue; padding:12px 20px; font-weight:bold; border-radius:8px;">Bodine</a>
+          </div>
+          <div class="col-sm-6 col-lg-6 mb-3">
+            <a href="teams/central.html" class="btn" style="background-color:yellow; color:maroon; padding:12px 20px; font-weight:bold; border-radius:8px;">Central</a>
+          </div>
+          <div class="col-sm-6 col-lg-6 mb-3">
+            <a href="teams/cheltenham.html" class="btn" style="background-color:rgb(0, 0, 62); color:rgb(178, 178, 5); text-shadow: 1px 1px 20px yellow; padding:12px 20px; font-weight:bold; border-radius:8px;">Cheltenham</a>
+          </div>
+          <div class="col-sm-6 col-lg-6 mb-3">
+            <a href="teams/chichester.html" class="btn" style="background-color:rgb(170, 170, 170); color:maroon; text-shadow:1px 1px 20px white; padding:12px 20px; font-weight:bold; border-radius:8px;">Chichester</a>
+          </div>
+          <div class="col-sm-6 col-lg-6 mb-3">
+            <a href="teams/dobbins.html" class="btn" style="background-color:gray; padding:12px 20px; font-weight:bold; border-radius:8px;">Dobbins Vo-Tech</a>
+          </div>
+          <div class="col-sm-6 col-lg-6 mb-3">
+            <a href="teams/kennett.html" class="btn" style="background-color:rgb(7, 7, 206); color:white; padding:12px 20px; font-weight:bold; border-radius:8px;">Kennett</a>
+          </div>
+          <div class="col-sm-6 col-lg-6 mb-3">
+            <a href="teams/lowermoreland.html" class="btn" style="background-color:navy ; color:#C5B783; padding:12px 20px; font-weight:bold; border-radius:8px;">Lower Moreland</a>
+          </div>
+          <div class="col-sm-6 col-lg-6 mb-3">
+            <a href="teams/nhs.html" class="btn" style="background-color:#C5B783 ; color:rgb(1, 1, 103); padding:12px 20px; font-weight:bold; border-radius:8px;">New Hope-Solebury</a>
+          </div>
+          <div class="col-sm-6 col-lg-6 mb-3">
+            <a href="teams/pikesville.html" class="btn" style="background-color:rgba(131, 3, 131, 0.947); color: white; text-shadow: 1px 1px 4px black; padding:12px 20px; font-weight:bold; border-radius:8px;">Pikesville</a>
+          </div>
+          <div class="col-sm-6 col-lg-6 mb-3">
+            <a href="teams/springfield.html" class="btn" style="background-color:navy; color:white;padding:12px 20px; font-weight:bold; border-radius:8px;">Springfield Township</a>
+          </div>
+          <div class="col-sm-6 col-lg-6 mb-3">
+            <a href="teams/towerhill.html" class="btn" style="color:rgb(4, 71, 4); background-color:rgb(181, 177, 177); border-color:rgb(2, 37, 2); text-shadow: 1px 1px 4px white;padding:12px 20px; font-weight:bold; border-radius:8px;">Tower Hill</a>
+          </div>
+          <div class="col-sm-6 col-lg-6 mb-3">
+            <a href="teams/uppermoreland.html" class="btn" style="background-color:yellow; color:purple; text-shadow: 1px 1px 4px white;padding:12px 20px; font-weight:bold; border-radius:8px;">Upper Moreland</a>
+          </div>
+          <div class="col-sm-6 col-lg-6 mb-3">
+            <a href="teams/wt.html" class="btn" style="background-color:rgba(0, 0, 0, 0.83);color:red; padding:12px 20px; font-weight:bold; border-radius:8px;">William Tennent</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2024-2025 -->
+      <div class="col-md-6">
+        <h3 class="mb-3 text-center" style="margin-top:25px;margin-right:175px;margin-bottom:25px">2024-2025 Season</h3>
+        <div class="row">
+          <div class="col-sm-6 col-lg-6 mb-3">
+            <a href="teams/academyAtPalumbo.html" class="btn" style="background-color:#027278; color:white; padding:12px 20px; font-weight:bold; border-radius:8px;">Academy at Palumbo</a>
+          </div>
+          <div class="col-sm-6 col-lg-6 mb-3">
+            <a href="teams/agnesIrwin.html" class="btn" style="color:#17468e; background-color:#fec746; padding:12px 20px; font-weight:bold; border-radius:8px;">Agnes Irwin</a>
+          </div>
+          <div class="col-sm-6 col-lg-6 mb-3">
+            <a href="teams/cbEast.html" class="btn" style="background-color:#0f2444; color: red; padding:12px 20px; text-shadow: 0px 0px 20px white; font-weight:bold; border-radius:8px;">CB East</a>
+          </div>
+          <div class="col-sm-6 col-lg-6 mb-3">
+            <a href="teams/central.html" class="btn" style="background-color:yellow; color:maroon; padding:12px 20px; font-weight:bold; border-radius:8px;">Central</a>
+          </div>
+          <div class="col-sm-6 col-lg-6 mb-3">
+            <a href="teams/crsouth.html" class="btn" style="background-color:#C5B783 ; color:navy; padding:12px 20px; font-weight:bold; border-radius:8px;">Council Rock South</a>
+          </div>
+          <div class="col-sm-6 col-lg-6 mb-3">
+            <a href="teams/lowermerion.html" class="btn" style="background-color:white; color:maroon; border-color:maroon; padding:12px 20px; font-weight:bold; border-radius:8px;">Lower Merion</a>
+          </div>
+          <div class="col-sm-6 col-lg-6 mb-3">
+            <a href="teams/lowermoreland.html" class="btn" style="background-color:navy ; color:#C5B783; padding:12px 20px; font-weight:bold; border-radius:8px;">Lower Moreland</a>
+          </div>
+          <div class="col-sm-6 col-lg-6 mb-3">
+            <a href="teams/masterman.html" class="btn" style="background-color:rgb(6, 49, 180); color:white; padding:12px 20px; font-weight:bold; border-radius:8px;">Masterman</a>
+          </div>
+          <div class="col-sm-6 col-lg-6 mb-3">
+            <a href="teams/msj.html" class="btn" style="background-color:purple; color:white; padding:12px 20px; font-weight:bold; border-radius:8px;">Mount St. Joseph</a>
+          </div>
+          <div class="col-sm-6 col-lg-6 mb-3">
+            <a href="teams/pennridge.html" class="btn" style="background-color:rgb(3, 73, 3); color:white; padding:12px 20px; font-weight:bold; border-radius:8px;">Pennridge</a>
+          </div>
+          <div class="col-sm-6 col-lg-6 mb-3">
+            <a href="teams/perkvalley.html" class="btn" style="background-color:orange; color:white; padding:12px 20px; font-weight:bold; border-radius:8px;">Perkiomen Valley</a>
+          </div>
+          <div class="col-sm-6 col-lg-6 mb-3">
+            <a href="teams/phoenixville.html" class="btn" style="background-color:rgba(91, 2, 91, 0.947);color:white; padding:12px 20px; font-weight:bold; border-radius:8px;">Phoenixville</a>
+          </div>
+          <div class="col-sm-6 col-lg-6 mb-3">
+            <a href="teams/souderton.html" class="btn" style="background-color:rgb(162, 5, 5); color:white; padding:12px 20px; font-weight:bold; border-radius:8px;">Souderton</a>
+          </div>
+          <div class="col-sm-6 col-lg-6 mb-3">
+            <a href="teams/uppermerion.html" class="btn" style="background-color:#fec746d5;color:navy; padding:12px 20px; font-weight:bold; border-radius:8px;">Upper Merion</a>
+          </div>
+          <div class="col-sm-6 col-lg-6 mb-3">
+            <a href="teams/uppermoreland.html" class="btn" style="background-color:yellow; color:purple; text-shadow: 1px 1px 4px white;padding:12px 20px; font-weight:bold; border-radius:8px;">Upper Moreland</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- JS dependencies -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Plymouth Whitemarsh Girls Basketball</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.6.2/flatly/bootstrap.min.css" />
+
+  <style>
+    /* Full-page background image */
+    body, html {
+      height: 100%;
+      margin: 0;
+    }
+
+    .bg-image {
+      background-image: url('partials/login-background.jpg');
+      background-size: cover;
+      background-position: center;
+      height: 100%;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .login-form {
+      background-color: rgba(255, 255, 255, 0.85);
+      padding: 50px 40px;
+      border-radius: 15px;
+      text-align: center;
+      width: 350px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .login-form:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+    }
+
+    .login-form input {
+      margin-bottom: 20px;
+      border-radius: 8px;
+      padding: 12px;
+    }
+
+    .login-form button {
+      border-radius: 8px;
+      padding: 12px;
+      font-weight: bold;
+    }
+
+    #error-message {
+      color: red;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header partial -->
+  <div id="header"></div>
+  <script>
+    fetch("partials/header.html")
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById("header").innerHTML = html;
+      });
+  </script>
+
+  <!-- Navbar partial -->
+  <div id="navbar"></div>
+  <script>
+    fetch("partials/navbar.html")
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById("navbar").innerHTML = html;
+
+        // Load GameChanger SDK AFTER header is inserted
+        const script = document.createElement("script");
+        script.src = "https://widgets.gc.com/static/js/sdk.v1.js";
+        script.onload = function() {
+          window.GC.team.schedule.init({
+              target: "#gc-schedule-widget-az62",
+              widgetId: "0e26aa11-82e0-4084-8f24-78735ad4e53f",
+              maxVerticalGamesVisible:2
+          });
+        };
+        document.body.appendChild(script);
+
+        // Show Opponents link if logged in
+        if (sessionStorage.getItem("loggedIn") === "true") {
+          const opponentsLink = document.getElementById("opponents-link");
+          if (opponentsLink) opponentsLink.style.display = "block";
+        }
+      });
+  </script>
+
+  <!-- Full-page background with login form -->
+  <div class="bg-image">
+    <div class="login-form" id="login-wrapper">
+      <h3>Login</h3>
+      <input type="password" id="password" class="form-control" placeholder="Enter password">
+      <button id="loginBtn" class="btn btn-primary btn-block mt-3">Login</button>
+      <p id="error-message"></p>
+    </div>
+  </div>
+
+  <!-- JS dependencies -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"></script>
+
+  <!-- Login functionality -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const loginWrapper = document.getElementById("login-wrapper");
+
+      // Hide login form if already logged in
+      if (sessionStorage.getItem("loggedIn") === "true") {
+        if (loginWrapper) loginWrapper.style.display = "none";
+      }
+
+      // Login button click
+      document.getElementById("loginBtn").addEventListener("click", function() {
+        const password = document.getElementById("password").value;
+        const errorMessage = document.getElementById("error-message");
+
+        if (password === "colonials22") {
+          sessionStorage.setItem("loggedIn", "true");
+          if (loginWrapper) loginWrapper.style.display = "none";
+          window.location.href = "opponents.html";
+        } else {
+          errorMessage.textContent = "Incorrect password. Please try again.";
+        }
+      });
+
+      // Enter key triggers login
+      document.getElementById("password").addEventListener("keydown", function(event) {
+        if (event.key === "Enter") {
+          event.preventDefault();
+          document.getElementById("loginBtn").click();
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

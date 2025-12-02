@@ -1,0 +1,48 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="../index.html">
+          <img src="../partials/logo.png" style="width:40px; height:auto;" />
+        </a>
+      </li>
+
+      <li class="nav-item active ml-3" id="opponents-link" style="display:none;">
+        <a class="nav-link"
+           href="../opponents.html"
+           style="margin-top:5px; font-size:20px; color:white !important;">
+          Opponents
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Full widget, scrollable horizontally -->
+  <div id="gc-widget-wrapper"
+       style="
+         max-width:650px;
+         height:55px;
+         overflow-x:auto;
+         overflow-y:hidden;
+         white-space:nowrap;
+         display:flex;
+         align-items:center;
+       ">
+    <div id="gc-schedule-widget-az62"></div>
+  </div>
+
+</nav>
+
+<script src="https://widgets.gc.com/static/js/sdk.v1.js"></script>
+<script>
+  window.GC.team.schedule.init({
+    target: "#gc-schedule-widget-az62",
+    widgetId: "0e26aa11-82e0-4084-8f24-78735ad4e53f",
+    maxVerticalGamesVisible: 1
+  });
+</script>
