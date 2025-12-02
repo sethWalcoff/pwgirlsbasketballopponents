@@ -16,7 +16,7 @@
     }
 
     .bg-image {
-      background-image: url('partials/login-background.jpg');
+      background-image: url('login-background.jpg');
       background-size: cover;
       background-position: center;
       height: 100%;
@@ -64,7 +64,7 @@
   <!-- Header partial -->
   <div id="header"></div>
   <script>
-    fetch("partials/header.html")
+    fetch("header.html")
       .then(res => res.text())
       .then(html => {
         document.getElementById("header").innerHTML = html;
@@ -74,7 +74,7 @@
   <!-- Navbar partial -->
   <div id="navbar"></div>
   <script>
-    fetch("partials/navbar.html")
+    fetch("navbar.html")
       .then(res => res.text())
       .then(html => {
         document.getElementById("navbar").innerHTML = html;

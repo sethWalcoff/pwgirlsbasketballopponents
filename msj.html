@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv='X-UA-Compatible' content='IE=edge'>
   <meta name='viewport' content='width=device-width, initial-scale=1'>
-  <title>Tower Hill Stats</title>
+  <title>Mount St. Joseph Stats</title>
 
   <!-- Bootstrap CSS (Flatly theme) -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.6.2/flatly/bootstrap.min.css" />
@@ -17,10 +17,10 @@
 </head>
 <body>
 
-  <!-- Load header partial -->
+   <!-- Load header partial -->
   <div id="header"></div>
   <script>
-    fetch("../partials/header.html")
+    fetch("header.html")
       .then(res => res.text())
       .then(html => document.getElementById("header").innerHTML = html);
   </script>
@@ -28,7 +28,7 @@
   <!-- Load navbar partial -->
     <div id="navbar"></div>
     <script>
-  fetch("../partials/navbar.html")
+  fetch("navbar.html")
     .then(res => res.text())
     .then(html => {
       const navbarContainer = document.getElementById("navbar");
@@ -62,7 +62,7 @@
 
   <!-- JS to fetch table data and handle search -->
   <script>
-    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbybKnvIdpUU70DlGtvVPJKdlT6nvJtcMM0HSUcG2XQw8KmBMErwK-jpawsyTY_Es9s_Cg/exec";
+    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxBNyn-rTjYh-MUnv0aN6wn-B0mPzgdnc-5VOz1XPnTqEh3a4R_Sz-435R5InsHeA9k0A/exec";
 
     let tableData = [];
     let currentSortColumn = null;
