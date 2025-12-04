@@ -20,7 +20,7 @@
   <!-- Load header partial -->
   <div id="header"></div>
   <script>
-    fetch("../partials/header.html")
+    fetch("header.html")
       .then(res => res.text())
       .then(html => document.getElementById("header").innerHTML = html);
   </script>
@@ -28,7 +28,7 @@
   <!-- Load navbar partial -->
     <div id="navbar"></div>
     <script>
-  fetch("../partials/navbar.html")
+  fetch("navbar.html")
     .then(res => res.text())
     .then(html => {
       const navbarContainer = document.getElementById("navbar");
